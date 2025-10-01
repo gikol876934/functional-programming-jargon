@@ -8,3 +8,25 @@ rules:
   eqeqeq: 0
   no-undef: 0
   no-extend-native: 0
+contract Salesperson is Hourly 
+{
+    constructor(uint _idNumber, uint _managerId, uint _hourlyRate) 
+        Hourly(_idNumber, _managerId, _hourlyRate) {}
+}
+
+
+contract EngineeringManager is Salaried, Manager
+{
+    constructor(uint _idNumber, uint _managerId, uint _annualSalary) 
+        Salaried(_idNumber, _managerId, _annualSalary) {}
+}
+
+contract InheritanceSubmission {
+    address public salesPerson;
+    address public engineeringManager;
+
+    constructor(address _salesPerson, address _engineeringManager) {
+        salesPerson = _salesPerson;
+        engineeringManager = _engineeringManager;
+    }
+}
